@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { firestore } from '../firebase';
+
 import Posts from './Posts';
 
 class Application extends Component {
@@ -36,7 +38,17 @@ class Application extends Component {
     ],
   };
 
-  handleCreate = post => {
+  componentDidMount = () => {
+    const posts = firestore
+      .collection('posts')
+      .get()
+      .then((snapshot) => {
+        console.log({ snapshot });
+      });
+    console.log(posts);
+  };
+
+  handleCreate = (post) => {
     const { posts } = this.state;
     this.setState({ posts: [post, ...posts] });
   };
@@ -45,7 +57,7 @@ class Application extends Component {
     const { posts } = this.state;
 
     return (
-      <main className="Application">
+      <main className='Application'>
         <h1>Think Piece</h1>
         <Posts posts={posts} onCreate={this.handleCreate} />
       </main>
