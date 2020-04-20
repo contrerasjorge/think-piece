@@ -33,5 +33,5 @@ functions/node_modules
 .runtimeconfig.json
 .firebase/
 
-**.json
+/*.json
 **.rules
