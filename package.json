@@ -16,7 +16,7 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
